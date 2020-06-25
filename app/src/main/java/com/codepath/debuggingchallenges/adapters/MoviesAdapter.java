@@ -3,13 +3,14 @@ package com.codepath.debuggingchallenges.adapters;
 import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.codepath.debuggingchallenges.R;
@@ -46,7 +47,7 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
     @Override
     public int getItemCount() {
-        return 0;
+        return movies.size();
     }
 
     @NonNull
@@ -65,7 +66,6 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
     @Override
     public void onBindViewHolder(MoviesAdapter.ViewHolder viewHolder, int position) {
-
         Movie movie = movies.get(position);
 
         // Populate the data into the template view using the data object
@@ -76,13 +76,14 @@ public class MoviesAdapter extends RecyclerView.Adapter<MoviesAdapter.ViewHolder
 
         if (movieRating > 6) {
             viewHolder.view.setBackgroundColor(Color.GREEN);
+        }else{
+            viewHolder.view.setBackgroundColor(Color.TRANSPARENT);
         }
 
         String ratingText = String.format(resources.getString(R.string.rating), movieRating);
         viewHolder.tvRating.setText(ratingText);
 
-        Glide.with(viewHolder.ivPoster.getContext()).load(movie.getPosterUrl()).into(
-                viewHolder.ivPoster);
-
+       Glide.with(viewHolder.ivPoster.getContext()).load(movie.getPosterUrl()).into(
+               viewHolder.ivPoster);
     }
 }

@@ -1,10 +1,10 @@
 package com.codepath.debuggingchallenges.activities;
 
 import android.os.Bundle;
-import androidx.appcompat.app.AppCompatActivity;
 import android.widget.TextView;
 import android.widget.Toolbar;
 
+import androidx.appcompat.app.AppCompatActivity;
 import com.codepath.debuggingchallenges.R;
 
 public class ToolbarActivity extends AppCompatActivity {
